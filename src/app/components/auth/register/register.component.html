@@ -1,0 +1,85 @@
+<div class="text-center container w-50 p-5 m-5 mx-auto">
+  <h4 class="text-center">Registrarse</h4>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate class="w-50 mx-auto">
+    <div>
+      <div class="w-100 mx-auto">
+        <mat-form-field class="mt-2 d-block">
+          <input class="w-100" matInput placeholder="Nombres" formControlName="name" type="text">
+          <mat-error *ngIf="!registerForm.get('name')?.errors?.required && (registerForm.get('name')?.errors?.pattern)">
+            Por favor, introduce tu(s) nombre(s) correctamente
+          </mat-error>
+          <mat-error
+            *ngIf="registerForm.get('name')?.invalid && (registerForm.get('name')?.dirty || registerForm.get('name')?.touched) && registerForm.get('name')?.errors?.required">
+            Nombre(s) obligatorio(s)
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-100 mx-auto">
+        <mat-form-field class="mt-2 d-block">
+          <input matInput placeholder="Apellidos" formControlName="lastName" type="text">
+          <mat-error
+            *ngIf="!registerForm.get('lastName')?.errors?.required && (registerForm.get('lastName')?.errors?.pattern)">
+            Por favor, introduce tu(s) apellido(s) correctamente
+          </mat-error>
+          <mat-error
+            *ngIf="registerForm.get('lastName')?.invalid && (registerForm.get('lastName')?.dirty || registerForm.get('lastName')?.touched) && registerForm.get('lastName')?.errors?.required">
+            Apellido(s) obligatorio(s)
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-100 mx-auto">
+        <mat-form-field class="mt-2 d-block">
+          <input matInput placeholder="Identificación" formControlName="document" type="text" maxlength="10">
+          <mat-error
+            *ngIf="!registerForm.get('document')?.errors?.required && (registerForm.get('document')?.errors?.pattern)">
+            Por favor, introduce tu número de identificación válido
+          </mat-error>
+          <mat-error
+            *ngIf="registerForm.get('document')?.invalid && (registerForm.get('document')?.dirty || registerForm.get('document')?.touched) && registerForm.get('document')?.errors?.required">
+            Identificación es obligatoria
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-100 mx-auto">
+        <mat-form-field class="mt-2 d-block">
+          <input matInput placeholder="Email" formControlName="email" type="email">
+          <mat-error
+            *ngIf="!registerForm.get('email')?.errors?.required && (registerForm.get('email')?.errors?.pattern)">
+            Por favor, introduce una dirección de correo electrónico válida
+          </mat-error>
+          <mat-error
+            *ngIf="registerForm.get('email')?.invalid && (registerForm.get('email')?.dirty || registerForm.get('email')?.touched) && registerForm.get('email')?.errors?.required">
+            Correo electrónico es obligatorio
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-100 mx-auto">
+        <mat-form-field class="mt-2 d-block">
+          <input matInput type="password" placeholder="Contraseña" formControlName="password">
+          <mat-error *ngIf="!registerForm.get('password')?.errors?.required">
+            La longitud de la contraseña debe ser mayor o igual a 8 y la contraseña debe contener uno o más
+            caracteres en mayúsculas, minúsculas y numéricos
+          </mat-error>
+          <mat-error
+            *ngIf="registerForm.get('password')?.invalid && (registerForm.get('password')?.dirty || registerForm.get('password')?.touched) && registerForm.get('password')?.errors?.required">
+            Contraseña es obligatoria
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-100 mx-auto">
+        <mat-form-field class="mt-2 d-block">
+          <input matInput type="password" placeholder="Confirmar contraseña" formControlName="repeatPassword"
+            [errorStateMatcher]="matcher">
+          <mat-error *ngIf="registerForm.hasError('notSame')">
+            Las contraseñas no coinciden
+          </mat-error>
+          <mat-error
+            *ngIf="registerForm.get('repeatPassword')?.invalid && (registerForm.get('repeatPassword')?.dirty || registerForm.get('repeatPassword')?.touched) && registerForm.get('repeatPassword')?.errors?.required">
+            Contraseña es obligatoria
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button [disabled]="!registerForm.valid" mat-raised-button color="primary" mat-button>Registrarse</button>
+    </div>
+  </form>
+</div>

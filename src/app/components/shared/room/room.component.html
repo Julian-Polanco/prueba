@@ -1,0 +1,92 @@
+<main>
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{name}}</mat-card-title>
+      <mat-card-subtitle>{{descriptionShort}}</mat-card-subtitle> <br />
+      <span>Calificación</span>
+      <star-rating-control [readOnly]="true" [hoverEnabled]="true" [rating]="raitingValue"></star-rating-control>
+      <span>Precio: <strong>{{price | currency: 'CO'}}</strong></span>
+    </mat-card-header>
+    <div [style.height]="'auto'">
+      <mat-carousel *ngIf="imagesRoom[0] && imagesRoom[0].image" timings="250ms ease-in" [autoplay]="false"
+        [interval]="5000" color="accent" maxWidth="auto" [proportion]="40" [slideHeight]="'100%'"
+        [slides]="slides.length" [loop]="true" [hideArrows]="false" [hideIndicators]="true" [useKeyboard]="true"
+        [useMouseWheel]="false" orientation="ltr" [color]="'primary'">
+        {{imagesRoom | json}
+        <mat-carousel-slide #matCarouselSlide *ngFor="let slide of imagesRoom; let i = index" [image]="slide.image"
+          overlayColor="#00000040" [hideOverlay]="false"></mat-carousel-slide>
+      </mat-carousel>
+    </div>
+    <div *ngIf="isSuperAdmin">
+      <button mat-raised-button color="warn" (click)="deleteRoom()">Eliminar habitación</button>
+      <button mat-raised-button color="primary" (click)="editRoom()">Editar habitación</button>
+    </div>
+    <div>
+      <br />
+      <div class="book" [formGroup]="bookForm">
+        <mat-form-field appearance="fill" class="example-form-field">
+          <mat-label>Fechas</mat-label>
+          <mat-date-range-input [rangePicker]="rangePicker" [min]="minDate">
+            <input formControlName="dateStart" matStartDate placeholder="Entrada">
+            <input formControlName="dateEnd" matEndDate placeholder="Salida">
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matSuffix [for]="rangePicker"></mat-datepicker-toggle>
+          <mat-date-range-picker #rangePicker>
+            <mat-date-range-picker-actions>
+              <button mat-button matDateRangePickerCancel>Cancelar</button>
+              <button mat-raised-button color="primary" matDateRangePickerApply>Aplicar</button>
+            </mat-date-range-picker-actions>
+          </mat-date-range-picker>
+        </mat-form-field>
+        <button mat-raised-button color="primary" [disabled]="bookForm.invalid" (click)="reserve()">RESERVAR
+          HABITACIÓN</button>
+      </div>
+    </div>
+
+    <br />
+
+    <mat-card-content>
+      <ul>
+        <li>
+          <mat-icon>bed</mat-icon> <strong> Incluído</strong>
+        </li>
+        <li>
+          <mat-icon>wifi</mat-icon> <strong> Incluído</strong>
+        </li>
+        <li>
+          <mat-icon>restaurant</mat-icon> <strong> Incluído</strong>
+        </li>
+      </ul>
+      <p>
+        {{descriptionLarge}}
+      </p>
+    </mat-card-content>
+
+    <hr />
+
+    <div *ngIf="isLogin && canAddCommentUser" [formGroup]="commentForm" class="add-comment">
+      <h3>Agregar comentario</h3>
+      <span>
+        <h4>Calificación:</h4>
+      </span>
+      <star-rating-control [hoverEnabled]="true" formControlName="rating"></star-rating-control>
+      <textarea formControlName="comment" rows="10">
+
+      </textarea>
+      <div class="div-btn-send">
+        <button class="btn-send" mat-raised-button color="primary" [disabled]="commentForm.invalid"
+          (click)="addComment()">Enviar</button>
+      </div>
+    </div>
+    <div class="comments">
+      <h3>{{comments.length}} comentarios</h3>
+      <app-comment class="comment" *ngFor="let comment of comments" [raitingValue]="comment.score"
+        [fullName]="comment.userFullName" [comment]="comment.comment" [userId]="dataUser.id"
+        [commentUserId]="comment.userId" [idComment]="comment.id" (commentDeleted)="reloadRoomDetail($event)">
+      </app-comment>
+    </div>
+  </mat-card>
+
+</main>

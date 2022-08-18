@@ -1,0 +1,34 @@
+<div class="text-center container w-50 p-5 m-5 mx-auto">
+  <h4 class="text-center">Iniciar Sesión</h4>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate class="d-flex-center">
+    <div>
+      <div class="w-100 mx-auto">
+        <mat-error *ngIf="sessionOk == 2">
+          Credenciales incorrectas
+        </mat-error>
+        <mat-form-field class="mt-2 d-block">
+          <input class="w-100" matInput placeholder="Email" formControlName="email">
+          <mat-error *ngIf="!loginForm.get('email')?.errors?.required && (loginForm.get('email')?.errors?.pattern)">
+            Por favor, introduce una dirección de correo electrónico válida
+          </mat-error>
+          <mat-error
+            *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched) && loginForm.get('email')?.errors?.required">
+            Correo electrónico es obligatorio
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="w-100 mx-auto">
+        <mat-form-field class="mt-2 d-block">
+          <input class="w-100" matInput type="password" placeholder="Contraseña" formControlName="password">
+          <mat-error
+            *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched) && loginForm.get('password')?.errors?.required">
+            Contraseña es obligatoria
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="mt-top">
+        <button [disabled]="!loginForm.valid" mat-raised-button color="primary" mat-button>Iniciar sesión</button>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,28 @@
+<main class="w-50 mx-auto p-4 my-5">
+  <div [formGroup]="formDetailRoom" class="div-form">
+    <h2>Editar habitación</h2>
+    <mat-form-field class="example-form-field" appearance="fill">
+      <mat-label>Nombre habitación</mat-label>
+      <input matInput type="text" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Descripción corta de la habitación</mat-label>
+      <textarea matInput placeholder="Habitación sencilla con dos camas..."
+        formControlName="descriptionShort"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Descripción completa de la habitación</mat-label>
+      <textarea matInput placeholder="Habitación con dos baños privados..."
+        formControlName="descriptionLarge"></textarea>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Precio por noche</mat-label>
+      <input matInput type="number" name="price" formControlName="price">
+    </mat-form-field>
+  </div>
+  <button [disabled]="!formDetailRoom.valid" mat-raised-button color="primary" (click)="editRoom()">Guardar
+    habitación</button>
+</main>

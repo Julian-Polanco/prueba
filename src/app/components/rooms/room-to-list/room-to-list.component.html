@@ -1,0 +1,14 @@
+<main class="w-75 mx-auto">
+  <hr />
+  <mat-grid-list cols="4" rowHeight="100px">
+    <mat-grid-tile *ngFor="let tile of contentRooms" [colspan]="tile.cols" [rowspan]="tile.rows">
+      <h2 *ngIf="tile.title">{{tile.title}}</h2>
+      <p *ngIf="tile.description">{{tile.description}}</p>
+      <div *ngIf="tile.image">
+        <img class="images-news" mat-card-image [src]="tile.image">
+      </div>
+      <button (click)="viewRoom()" *ngIf="tile.button" mat-raised-button color="primary">Ver habitación</button>
+    </mat-grid-tile>
+  </mat-grid-list>
+<br>
+</main>

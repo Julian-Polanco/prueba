@@ -1,0 +1,17 @@
+<main>
+  <mat-card class="cards">
+    <mat-card-header>
+      <div mat-card-avatar class="cardsAvatar {{imageNameWithoutExt}}"></div>
+      <mat-card-title>{{title}}</mat-card-title>
+    </mat-card-header>
+    <img mat-card-image class="cardsImg" [src]="'assets/images/home/'+image">
+    <mat-card-content class="description">
+      <p>
+        {{description}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="">
+      <button class="bg-danger w-100" mat-button>Ir alla!</button>
+    </mat-card-actions>
+  </mat-card>
+</main>

@@ -1,0 +1,28 @@
+<div [style.height]="'auto'">
+  <mat-carousel timings="250ms ease-in" [autoplay]="true" [interval]="5000" color="accent" maxWidth="auto"
+    [proportion]="40" [slides]="5" [loop]="true" [hideArrows]="false" [hideIndicators]="true" [useKeyboard]="true"
+    [useMouseWheel]="false" orientation="ltr" [slideHeight]="'100%'" [color]="'primary'">
+    <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slides; let i = index" [image]="slide.image"
+      overlayColor="#00000040" [hideOverlay]="false"></mat-carousel-slide>
+  </mat-carousel>
+</div>
+<mat-card>
+  <mat-card-title class="title-center">Hotel The Cullinan South Tower</mat-card-title>
+  <mat-card-subtitle class="description-hotel">Un ambiente familiar, un ambiente sofisticado y un confort de lujo, desde
+    el momento de su llegada
+    hasta su partida: espere todo eso y más en el Hotel The Cullinan South Tower. Confortables habitaciones con todas
+    las
+    comodidades modernas, refinados restaurantes y vinos, y una amplia zona de bienestar que se extiende por 2.800 m²
+    garantizan una relajación de pies a cabeza, ¡sin olvidar el impresionante panorama montañoso que se encuentra frente
+    a nuestra puerta principal! A solo un minuto de la estación de esquí abierta todo el año del glaciar Hintertux, el
+    Alpenhof es la base perfecta para los entusiastas de los deportes de invierno y los montañeros apasionados. En
+    verano, te esperan nuestros majestuosos tresmiles, hermosos prados de montaña y versátiles senderos para bicicletas.
+
+    ¡Envíenos su consulta sin compromiso y compruébelo usted mismo!</mat-card-subtitle>
+</mat-card>
+
+<div class="containerCards">
+  <div *ngFor="let card of cards">
+    <app-card-home [title]="card.title" [description]="card.descripion" [image]="card.image"></app-card-home>
+  </div>
+</div>

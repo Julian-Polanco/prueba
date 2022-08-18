@@ -1,0 +1,31 @@
+<main class="main-modal-edit-user">
+  <h2 mat-dialog-title>Editar usuario</h2>
+  <mat-dialog-content [formGroup]="formUser" class="mat-typography">
+    <mat-form-field class="mt-2 d-block">
+      <input class="w-100" matInput placeholder="Nombres" formControlName="fullname" type="text">
+      <mat-error *ngIf="!formUser.get('fullname')?.errors?.required && (formUser.get('fullname')?.errors?.pattern)">
+        Por favor, introduce tu(s) nombre(s) y apellido(s) correctamente
+      </mat-error>
+      <mat-error
+        *ngIf="formUser.get('fullname')?.invalid && (formUser.get('fullname')?.dirty || formUser.get('fullname')?.touched) && formUser.get('fullname')?.errors?.required">
+        Nombre(s) y apellido(s) obligatorio(s)
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="mt-2 d-block">
+      <input matInput placeholder="Email" formControlName="email" type="email">
+      <mat-error *ngIf="!formUser.get('email')?.errors?.required && (formUser.get('email')?.errors?.pattern)">
+        Por favor, introduce una dirección de correo electrónico válida
+      </mat-error>
+      <mat-error
+        *ngIf="formUser.get('email')?.invalid && (formUser.get('email')?.dirty || formUser.get('email')?.touched) && formUser.get('email')?.errors?.required">
+        Correo electrónico es obligatorio
+      </mat-error>
+    </mat-form-field>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button mat-raised-button color="primary" [disabled]="formUser.invalid" [mat-dialog-close]="closeModal"
+      (click)="editUser()" cdkFocusInitial>Guardar</button>
+  </mat-dialog-actions>
+</main>

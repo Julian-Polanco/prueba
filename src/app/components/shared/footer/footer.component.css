@@ -1,0 +1,28 @@
+.footer {
+    position: initial;
+    bottom: 0;
+    width: 100%;
+    height: auto;
+    background-color: #3f51b5;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 0px;
+}
+a{
+    display: inline-block;
+    color: #a3a2a2;
+    text-decoration: none;
+    -webkit-transition: color .2s linear;
+    transition: color .2s linear;
+    letter-spacing: 1px;
+    letter-spacing: .1rem;
+    padding: 2rem;
+    line-height: 2rem;
+}
+a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+span{
+    display: inline-block;
+}

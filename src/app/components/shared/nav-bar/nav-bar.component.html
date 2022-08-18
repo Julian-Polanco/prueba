@@ -1,0 +1,10 @@
+<mat-toolbar color="primary" class="mat-elevation-z6">
+  <button mat-button [routerLink]="['/']"><span><mat-icon>eco</mat-icon>The Cullinan South Tower</span></button>
+  <div class="spacer"></div>
+  <button *ngIf="isLogin && isAdminOrSuperadmin" mat-button [routerLink]="['/admin/add-room']">Agregar habitación</button> <!-- Para el rol administrador -->
+  <button *ngIf="isLogin && isAdminOrSuperadmin" mat-button [routerLink]="['/admin/manage-guests']">Gestionar huéspedes</button> <!-- Para el rol administrador -->
+  <button mat-button [routerLink]="['/rooms']">Habitaciones</button>
+  <button *ngIf="!isLogin" mat-button [routerLink]="['/auth/login']">Iniciar Sesión</button>
+  <button *ngIf="!isLogin" mat-raised-button [routerLink]="['/auth/register']">Registrarse</button>
+  <button *ngIf="isLogin" mat-button (click)="closeSession()">Cerrar Sesión</button>
+</mat-toolbar>

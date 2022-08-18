@@ -1,0 +1,21 @@
+ul {
+    list-style-type: none;
+    padding-inline-start: initial;
+}
+
+.add-comment {
+    display: grid;
+}
+
+.div-btn-send {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.btn-send {
+    width: 115px;
+}
+
+.comment {
+    padding-bottom: 5px;
+}

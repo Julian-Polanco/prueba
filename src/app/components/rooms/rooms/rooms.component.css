@@ -1,0 +1,13 @@
+.container{
+    margin-top: 2%;
+    display: grid;
+    grid-template-columns: 50% 50%; 
+}
+
+.button1:disabled{
+    margin-left:56%;
+}
+.button1{
+    margin-left:56%;
+    
+}

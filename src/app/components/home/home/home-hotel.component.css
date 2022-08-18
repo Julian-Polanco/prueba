@@ -1,0 +1,20 @@
+.title-center {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.description-hotel {
+    text-align: center;
+    font-size: large;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.images-news {
+    max-width: 400px;
+}
+
+.containerCards {
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+}

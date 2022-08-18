@@ -1,0 +1,32 @@
+.demo-table {
+    width: 100%;
+}
+
+.mat-column-document {
+    width: auto;
+    border-right: 1px solid currentColor;
+    padding-left: 1px;
+}
+
+.mat-column-fullName {
+    padding-left: 15px;
+    font-style: initial;
+}
+
+.mat-column-email {
+    width: auto;
+    text-align: left;
+    font-weight: bold;
+}
+
+.mat-column-role {
+    text-align: left;
+}
+
+.mat-column-borrar {
+    text-align: left;
+}
+
+.mat-column-editar {
+    text-align: left;
+}

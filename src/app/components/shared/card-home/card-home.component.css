@@ -1,0 +1,52 @@
+.cards {
+    margin: 3%;
+    max-width: 400px;
+}
+
+.cardsAvatar {
+    max-width: 100%;
+    background-size: cover;
+}
+
+.img1 {
+    background-image: url(../../../../assets/images/home/campana-del-hotel.png);
+}
+
+.img2 {
+    background-image: url(../../../../assets/images/home/gastronomyIcon.png);
+}
+
+.img3 {
+    background-image: url(../../../../assets/images/home/calendar.png);
+}
+
+.butonNextEvents {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+}
+
+.CardNextEvents {
+    position: absolute;
+    height: 128px;
+}
+
+.butonGas {
+    position: absolute;
+    bottom: 0;
+}
+
+.cardGas {
+    position: absolute;
+    height: 107px;
+}
+
+.cardsImg {
+    height: 300px;
+}
+
+.description {
+    min-height: 175px;
+    height: 100%;
+    max-height: 100%;
+}

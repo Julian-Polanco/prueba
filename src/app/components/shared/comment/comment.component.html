@@ -1,0 +1,22 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{fullName}}</mat-card-title>
+  </mat-card-header>
+  <div [formGroup]="commentsForm">
+    <div class="div-rating">
+      <span>
+        <h3>Calificación:</h3>
+      </span>
+      <star-rating-control [hoverEnabled]="true" [readOnly]="true" [rating]="raitingValue"></star-rating-control>
+    </div>
+  </div>
+  <mat-card-content>
+    <p>
+      {{comment}}
+    </p>
+  </mat-card-content>
+  <mat-card-actions align="end" *ngIf="actionFromComment">
+    <button mat-raised-button (click)="deleteComment()" color="primary">Eliminar comentario</button>
+  </mat-card-actions>
+</mat-card>
